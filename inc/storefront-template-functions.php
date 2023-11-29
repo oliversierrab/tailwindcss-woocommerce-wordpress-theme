@@ -210,14 +210,14 @@ if ( ! function_exists( 'storefront_site_title_or_logo' ) ) {
 	function storefront_site_title_or_logo( $echo = true ) {
 		if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
 			$logo = get_custom_logo();
-			$html = is_home() ? '<h1 class="logo">' . $logo . '</h1>' : $logo;
+			$html = is_home() ? '<h1 class="logo h-8 w-auto">' . $logo . '</h1>' : $logo;
 		} else {
 			$tag = is_home() ? 'h1' : 'div';
 
-			$html = '<' . esc_attr( $tag ) . ' class="beta site-title"><a href="' . esc_url( home_url( '/' ) ) . '" rel="home">' . esc_html( get_bloginfo( 'name' ) ) . '</a></' . esc_attr( $tag ) . '>';
+			$html = '<' . esc_attr( $tag ) . ' class="text-2xl font-bold leading-7 text-gray-300 sm:truncate sm:text-3xl sm:tracking-tight"><a href="' . esc_url( home_url( '/' ) ) . '" rel="home">' . esc_html( get_bloginfo( 'name' ) ) . '</a></' . esc_attr( $tag ) . '>';
 
 			if ( '' !== get_bloginfo( 'description' ) ) {
-				$html .= '<p class="site-description">' . esc_html( get_bloginfo( 'description', 'display' ) ) . '</p>';
+				$html .= '<p class="site-description text-sm text-gray-500">' . esc_html( get_bloginfo( 'description', 'display' ) ) . '</p>';
 			}
 		}
 
@@ -238,24 +238,53 @@ if ( ! function_exists( 'storefront_primary_navigation' ) ) {
 	 */
 	function storefront_primary_navigation() {
 		?>
-		<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Navigation', 'storefront' ); ?>">
-		<button id="site-navigation-menu-toggle" class="menu-toggle" aria-controls="site-navigation" aria-expanded="false"><span><?php echo esc_html( apply_filters( 'storefront_menu_toggle_text', __( 'Menu', 'storefront' ) ) ); ?></span></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location'  => 'primary',
-					'container_class' => 'primary-navigation',
-				)
-			);
+		<div class="relative flex items-center justify-between w-full sm:w-auto h-16">
+			<div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+				<!-- Mobile menu button-->
+				<button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+				<span class="absolute -inset-0.5"></span>
+				<span class="sr-only">Open main menu</span>
+				<!--
+					Icon when menu is closed.
 
-			wp_nav_menu(
-				array(
-					'theme_location'  => 'handheld',
-					'container_class' => 'handheld-navigation',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
+					Menu open: "hidden", Menu closed: "block"
+				-->
+				<svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+				</svg>
+				<!--
+					Icon when menu is open.
+
+					Menu open: "block", Menu closed: "hidden"
+				-->
+				<svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+				</svg>
+				</button>
+			</div>
+			<div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+				<div class="flex flex-shrink-0 items-center">
+					<?php storefront_site_title_or_logo(); ?>
+				</div>
+				<div class="hidden sm:ml-6 sm:block">
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location'  => 'primary',
+							'container_class' => 'primary-navigation',
+							'menu_class' => '',
+							'menu_id' => 'desktop-menu'
+						)
+					);
+					?>
+				</div>
+			</div>
+		</div>
+		<!-- <nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Navigation', 'storefront' ); ?>">
+		<button id="site-navigation-menu-toggle" class="menu-toggle" aria-controls="site-navigation" aria-expanded="false"><span><?php echo esc_html( apply_filters( 'storefront_menu_toggle_text', __( 'Menu', 'storefront' ) ) ); ?></span></button>
+			
+		</nav> -->
+		<!-- #site-navigation -->
 		<?php
 	}
 }
@@ -294,6 +323,7 @@ if ( ! function_exists( 'storefront_skip_links' ) ) {
 	 */
 	function storefront_skip_links() {
 		?>
+		<!-- TODO: update targets -->
 		<a class="skip-link screen-reader-text" href="#site-navigation"><?php esc_html_e( 'Skip to navigation', 'storefront' ); ?></a>
 		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'storefront' ); ?></a>
 		<?php
@@ -666,7 +696,7 @@ if ( ! function_exists( 'storefront_primary_navigation_wrapper' ) ) {
 	 * The primary navigation wrapper
 	 */
 	function storefront_primary_navigation_wrapper() {
-		echo '<div class="storefront-primary-navigation"><div class="col-full">';
+		echo '<nav class="storefront-primary-navigation bg-gray-800"><div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 flex justify-between items-center">';
 	}
 }
 
@@ -675,7 +705,22 @@ if ( ! function_exists( 'storefront_primary_navigation_wrapper_close' ) ) {
 	 * The primary navigation wrapper close
 	 */
 	function storefront_primary_navigation_wrapper_close() {
-		echo '</div></div>';
+		?>
+				</div>
+				<div class="sm:hidden hidden" id="mobile-menu">
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location'  => 'handheld',
+							'container_class' => 'handheld-navigation',
+							'menu_class' => '',
+							'menu_id' => 'mobile-menu'
+						)
+					);
+					?>
+				</div>
+			</nav>
+		<?
 	}
 }
 

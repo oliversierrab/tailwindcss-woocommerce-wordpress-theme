@@ -81,7 +81,7 @@ add_action( 'storefront_after_footer', 'storefront_sticky_single_add_to_cart', 9
  * @see storefront_product_search()
  * @see storefront_header_cart()
  */
-add_action( 'storefront_header', 'storefront_product_search', 40 );
+add_action( 'storefront_header', 'storefront_product_search', 51 );
 add_action( 'storefront_header', 'storefront_header_cart', 60 );
 
 /**
