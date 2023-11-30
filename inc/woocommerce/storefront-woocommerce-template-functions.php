@@ -90,7 +90,7 @@ if ( ! function_exists( 'storefront_cart_link' ) ) {
 		?>
 			<a class="cart-contents" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'storefront' ); ?>">
 				<?php /* translators: %d: number of items in cart */ ?>
-				<?php echo wp_kses_post( WC()->cart->get_cart_subtotal() ); ?> <span class="count text-gray-300"><?php echo wp_kses_data( sprintf( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'storefront' ), WC()->cart->get_cart_contents_count() ) ); ?></span>
+				<?php echo wp_kses_post( WC()->cart->get_cart_subtotal() ); ?> <span class="count text-gray-300 mr-1"><?php echo wp_kses_data( sprintf( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'storefront' ), WC()->cart->get_cart_contents_count() ) ); ?></span>
 			</a>
 		<?php
 	}
@@ -730,7 +730,7 @@ if ( ! function_exists( 'storefront_handheld_footer_bar_cart_link' ) ) {
 		}
 		?>
 			<a class="footer-cart-contents" href="<?php echo esc_url( wc_get_cart_url() ); ?>"><?php esc_html_e( 'Cart', 'storefront' ); ?>
-				<span class="count text-gray-300"><?php echo wp_kses_data( WC()->cart->get_cart_contents_count() ); ?></span>
+				<span class="count text-gray-300 mr-1"><?php echo wp_kses_data( WC()->cart->get_cart_contents_count() ); ?></span>
 			</a>
 		<?php
 	}

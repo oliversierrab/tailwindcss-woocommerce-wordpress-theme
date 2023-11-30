@@ -262,7 +262,7 @@ if ( ! function_exists( 'storefront_primary_navigation' ) ) {
 				</svg>
 				</button>
 			</div>
-			<div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+			<div class="flex flex-1 items-center justify-center sm:justify-start">
 				<div class="flex flex-shrink-0 items-center">
 					<?php storefront_site_title_or_logo(); ?>
 				</div>

@@ -6,12 +6,13 @@ module.exports = {
     "./*.php",
       "./js/*.js"
   ],
-theme: {
-  extend: {},
-},
-plugins: [
-      require('@tailwindcss/typography'),
-      require('@tailwindcss/aspect-ratio'),
- ],
+  important: true,
+  theme: {
+    extend: {},
+  },
+  plugins: [
+        require('@tailwindcss/typography'),
+        require('@tailwindcss/aspect-ratio'),
+  ],
 }
 
