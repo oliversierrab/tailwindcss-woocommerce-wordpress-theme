@@ -12,13 +12,12 @@
     @apply flex space-x-4;
 }
 
-
 #masthead > nav #desktop-menu > ul > li {
-    @apply text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium;
+    @apply text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium ml-1 lg:ml-5;
 }
 
 #masthead > nav #desktop-menu > ul > li.current_page_item {
-    @apply bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium;
+    @apply bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium ml-1 lg:ml-5;
 }
 
 #masthead > nav #mobile-menu > ul {
@@ -31,6 +30,20 @@
 
 #masthead > nav #mobile-menu > ul > li.current_page_item {
     @apply bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium;
+}
+
+.site-header-cart:hover .widget_shopping_cart,
+.site-header-cart.focus .widget_shopping_cart {
+    width: 250px;
+    left: -130px !important;
+}
+
+
+/* Home */
+
+.entry-content .wp-block-cover.alignfull,
+.home.storefront-align-wide.page-template-template-fullwidth .hentry .entry-content>.wp-block-cover.alignfull, .home.storefront-align-wide.page-template-template-fullwidth .hentry .entry-content>.wp-block-image.alignfull {
+    @apply mt-0;
 }
 
 /* Search */
@@ -47,4 +60,34 @@
 .product-search .widget_search form:not(.wp-block-search)::before, .widget_product_search form:not(.wp-block-search)::before {
     left: 7px;
     top: 7px;
+}
+
+/* Products */
+
+h2.wp-block-heading {
+    @apply text-2xl font-bold tracking-tight text-gray-900 m-6;
+}
+
+.woocommerce-LoopProduct-link.woocommerce-loop-product__link,
+.wc-block-grid__product-link {
+    @apply hover:opacity-75;
+}
+
+img.attachment-woocommerce_thumbnail.size-woocommerce_thumbnail,
+.product-category > a > img {
+    @apply rounded-md h-full w-full object-cover object-center lg:h-full lg:w-full;
+}
+
+.woocommerce-loop-product__title {
+    @apply text-sm text-gray-700
+}
+
+.woocommerce-Price-amount.amount bdi {
+    @apply text-sm font-medium text-gray-900;
+}
+
+.add_to_cart_button,
+.hentry .entry-content .wp-block-button .wp-block-button__link,
+.editor-styles-wrapper .wp-block-button .wp-block-button__link {
+    @apply rounded-md bg-gray-300 px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
 }

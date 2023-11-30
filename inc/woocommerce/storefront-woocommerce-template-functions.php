@@ -107,7 +107,7 @@ if ( ! function_exists( 'storefront_product_search' ) ) {
 	function storefront_product_search() {
 		if ( storefront_is_woocommerce_activated() ) {
 			?>
-			<div class="flex items-center product-search w-24">
+			<div class="items-center product-search hidden lg:flex w-40">
 				<?php the_widget( 'WC_Widget_Product_Search', 'title=' ); ?>
 			</div>
 			<?php
