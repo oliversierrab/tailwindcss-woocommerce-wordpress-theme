@@ -71,6 +71,8 @@ if ( version_compare( get_bloginfo( 'version' ), '4.7.3', '>=' ) && ( is_admin()
  */
 
 add_action('wp_enqueue_scripts', function(){
-    wp_enqueue_style('theme-css', get_stylesheet_directory_uri() . '/assets/css/style.min.css', [], time());
-	wp_enqueue_script('theme-js', get_stylesheet_directory_uri() . '/assets/css/script.min.js', [], time()); // TODO: set release version before publishing
+    wp_enqueue_style('theme-css', get_stylesheet_directory_uri() . '/assets/css/style.min.css', [], '1.0.0');
+	wp_enqueue_script('theme-js', get_stylesheet_directory_uri() . '/assets/css/script.min.js', [], '1.0.0');
+	// wp_enqueue_style('theme-css', get_stylesheet_directory_uri() . '/assets/css/style.min.css', [], time());
+	// wp_enqueue_script('theme-js', get_stylesheet_directory_uri() . '/assets/css/script.min.js', [], time());
 });

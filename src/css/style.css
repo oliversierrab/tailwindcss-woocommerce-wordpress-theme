@@ -155,5 +155,5 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
 }
 
 .single-product.single-product div.product .woocommerce-product-gallery.woocommerce-product-gallery--columns-4 .flex-control-thumbs li {
-    @apply mr-4 w-8 lg:w-16;
+    @apply mr-4 w-16;
 }
