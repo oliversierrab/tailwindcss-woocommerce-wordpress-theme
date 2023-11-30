@@ -107,6 +107,7 @@ if ( ! function_exists( 'storefront_product_search' ) ) {
 	function storefront_product_search() {
 		if ( storefront_is_woocommerce_activated() ) {
 			?>
+			<div class="flex">
 			<div class="items-center product-search hidden lg:flex w-40">
 				<?php the_widget( 'WC_Widget_Product_Search', 'title=' ); ?>
 			</div>
@@ -131,7 +132,7 @@ if ( ! function_exists( 'storefront_header_cart' ) ) {
 				$class = '';
 			}
 			?>
-		<ul id="site-header-cart" class="site-header-cart menu absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+		<ul id="site-header-cart" class="site-header-cart menu inset-y-0 right-0 flex items-center pr-2 relative sm:inset-auto sm:ml-6 sm:pr-0">
 			<li class="<?php echo esc_attr( $class ); ?>">
 				<?php storefront_cart_link(); ?>
 			</li>
@@ -139,7 +140,12 @@ if ( ! function_exists( 'storefront_header_cart' ) ) {
 				<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
 			</li>
 		</ul>
-			<?php
+		<?php
+		if ( storefront_is_woocommerce_activated() ) {
+		?>
+			</div>
+		<?php
+		}
 		}
 	}
 }
