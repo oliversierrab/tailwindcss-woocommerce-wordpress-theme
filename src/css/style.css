@@ -45,22 +45,22 @@ nav ul#desktop-menu {
 
 nav #desktop-menu > ul > li,
 nav ul#desktop-menu > li {
-    @apply text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium ml-1 lg:ml-5 relative;
+    @apply text-gray-300 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 text-sm font-medium ml-1 lg:ml-5 relative;
 }
 
 nav #desktop-menu > ul > li.current_page_item,
 nav ul#desktop-menu > li.current_page_item {
-    @apply bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium ml-1 lg:ml-5;
+    @apply bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium ml-1 lg:ml-5;
 }
 
 nav #desktop-menu > ul > li.menu-item-has-children .sub-menu,
 nav ul#desktop-menu > li.menu-item-has-children .sub-menu {
-    @apply hidden absolute bg-gray-700 p-3 z-10 m-0 top-full left-0;
+    @apply hidden absolute bg-gray-900 p-3 z-10 m-0 top-full left-0;
 }
 
 nav #desktop-menu > ul > li.menu-item-has-children .sub-menu li,
 nav ul#desktop-menu > li.menu-item-has-children .sub-menu li {
-    @apply text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2;
+    @apply text-gray-300 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2;
 }
 
 nav #desktop-menu > ul > li.menu-item-has-children:hover .sub-menu,
@@ -68,22 +68,34 @@ nav ul#desktop-menu > li.menu-item-has-children:hover .sub-menu {
     @apply block;
 }
 
-nav #mobile-menu > ul {
+nav #mobile-menu > ul,
+nav ul#mobile-menu {
     @apply space-y-1 px-2 pb-3 pt-2;
 }
 
-nav #mobile-menu > ul > li {
-    @apply text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium;
+nav #mobile-menu > ul > li,
+nav ul#mobile-menu > li,
+nav ul#mobile-menu > li .sub-menu > li {
+    @apply text-gray-300 hover:bg-gray-900 hover:text-white block rounded-md px-3 py-2 text-base font-medium !m-0;
 }
 
-nav #mobile-menu > ul > li.current_page_item {
-    @apply bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium;
+nav #mobile-menu > ul > li.current_page_item,
+nav ul#mobile-menu > li.current_page_item {
+    @apply bg-gray-950 text-white block rounded-md px-3 py-2 text-base font-medium;
+}
+
+nav ul#mobile-menu > li .sub-menu {
+    @apply m-0;
 }
 
 .site-header-cart:hover .widget_shopping_cart,
 .site-header-cart.focus .widget_shopping_cart {
     width: 250px;
     left: -130px !important;
+}
+
+#secondary-menu li > a {
+    @apply hover:bg-gray-900 hover:text-white;
 }
 
 
@@ -174,4 +186,15 @@ button, input[type="button"], input[type="reset"], input[type="submit"], .button
 
 .single-product.single-product div.product .woocommerce-product-gallery.woocommerce-product-gallery--columns-4 .flex-control-thumbs li {
     @apply mr-4 w-16;
+}
+
+.storefront-handheld-footer-bar ul li {
+    @apply text-indigo-700;
+}
+
+
+/* Footer Menu */
+
+.footer-navigation li {
+    @apply inline-block text-gray-300 hover:text-gray-100 px-3 py-2;
 }

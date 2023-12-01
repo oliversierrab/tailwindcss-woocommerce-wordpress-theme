@@ -671,10 +671,11 @@ if ( ! function_exists( 'storefront_handheld_footer_bar' ) ) {
 				'priority' => 10,
 				'callback' => 'storefront_handheld_footer_bar_account_link',
 			),
-			'search'     => array(
-				'priority' => 20,
-				'callback' => 'storefront_handheld_footer_bar_search',
-			),
+			// Disabling mobile bottom nav search
+			// 'search'     => array(
+			// 	'priority' => 20,
+			// 	'callback' => 'storefront_handheld_footer_bar_search',
+			// ),
 			'cart'       => array(
 				'priority' => 30,
 				'callback' => 'storefront_handheld_footer_bar_cart_link',

@@ -14,7 +14,18 @@
 
 	<?php do_action( 'storefront_before_footer' ); ?>
 
-	<footer id="colophon" class="bg-gray-900" role="contentinfo">
+	<footer id="colophon" class="bg-gray-950" role="contentinfo">
+		<div class="col-full">
+			<?php
+				wp_nav_menu(
+					array(
+						'theme_location'  => 'footer',
+						'container_class' => 'footer-navigation text-center m-5',
+						'menu_class' => ''
+					)
+				);
+			?>
+		</div>
 		<div class="col-full">
 
 			<?php

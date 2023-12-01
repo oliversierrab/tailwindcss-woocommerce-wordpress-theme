@@ -241,7 +241,7 @@ if ( ! function_exists( 'storefront_primary_navigation' ) ) {
 		<div class="relative flex items-center justify-between w-full sm:w-auto h-16">
 			<div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
 				<!-- Mobile menu button-->
-				<button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+				<button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
 				<span class="absolute -inset-0.5"></span>
 				<span class="sr-only">Open main menu</span>
 				<!--
@@ -280,10 +280,6 @@ if ( ! function_exists( 'storefront_primary_navigation' ) ) {
 				</div>
 			</div>
 		</div>
-		<!-- <nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Primary Navigation', 'storefront' ); ?>">
-		<button id="site-navigation-menu-toggle" class="menu-toggle" aria-controls="site-navigation" aria-expanded="false"><span><?php echo esc_html( apply_filters( 'storefront_menu_toggle_text', __( 'Menu', 'storefront' ) ) ); ?></span></button>
-			
-		</nav> -->
 		<!-- #site-navigation -->
 		<?php
 	}
@@ -299,12 +295,13 @@ if ( ! function_exists( 'storefront_secondary_navigation' ) ) {
 	function storefront_secondary_navigation() {
 		if ( has_nav_menu( 'secondary' ) ) {
 			?>
-			<nav class="secondary-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Secondary Navigation', 'storefront' ); ?>">
+			<nav class="secondary-navigation bg-gray-100 m-0 clear" role="navigation" aria-label="<?php esc_attr_e( 'Secondary Navigation', 'storefront' ); ?>">
 				<?php
 					wp_nav_menu(
 						array(
 							'theme_location' => 'secondary',
 							'fallback_cb'    => '',
+							'menu_id' => 'secondary-menu'
 						)
 					);
 				?>
@@ -696,7 +693,9 @@ if ( ! function_exists( 'storefront_primary_navigation_wrapper' ) ) {
 	 * The primary navigation wrapper
 	 */
 	function storefront_primary_navigation_wrapper() {
-		echo '<nav class="storefront-primary-navigation bg-gray-900"><div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 flex justify-between items-center">';
+		?>
+			<nav class="storefront-primary-navigation bg-gray-950" aria-label="<?php esc_attr_e( 'Primary Navigation', 'storefront' ); ?>"><div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 flex justify-between items-center">
+		<?php
 	}
 }
 
@@ -708,11 +707,12 @@ if ( ! function_exists( 'storefront_primary_navigation_wrapper_close' ) ) {
 		?>
 				</div>
 				<div class="sm:hidden hidden" id="mobile-menu">
+					<!-- TODO: fix menu when handheld menu is enabled -->
 					<?php
 					wp_nav_menu(
 						array(
 							'theme_location'  => 'handheld',
-							'container_class' => 'handheld-navigation',
+							// 'container_class' => 'handheld-navigation',
 							'menu_class' => '',
 							'menu_id' => 'mobile-menu'
 						)
@@ -729,7 +729,7 @@ if ( ! function_exists( 'storefront_header_container' ) ) {
 	 * The header container
 	 */
 	function storefront_header_container() {
-		echo '<div class="col-full">';
+		echo '<div class="w-full">';
 	}
 }
 
