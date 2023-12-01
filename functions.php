@@ -81,7 +81,7 @@ add_action('wp_enqueue_scripts', function(){
 	$version = time();
 
 	if(!in_array($_SERVER['REMOTE_ADDR'], $whitelist)){
-		$version = '1.0.1';
+		$version = '1.0.2';
 	}
 
 	wp_enqueue_style('theme-css', get_stylesheet_directory_uri() . '/assets/css/style.min.css', [], $version);
